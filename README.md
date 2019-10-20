@@ -5,7 +5,7 @@
 
 ###1. Introduction to the readme & Prototau API (PAPI)
 ###2. 
-###3. 
+###3. Database Development Details
 
 
 ## 1. Introduction to the Readme
@@ -33,4 +33,22 @@
 		Full complete plans about the future, e.g. including upcoming changes. 
 	</li><br>
 </ul>
+
+## 2. Something
+
+## 3. Database Development Details
+
+### 3.1 Misc
+
+Prototau API relies on a SQL database however, the exact architetecture depends on in the API is deployed locally (i.e. running in an on-board "raspberry pi" or if it's deployed on the cloud.
+
+<b>Local DB and API deployment</b>
+
+sqlLite and local flask server
+
+<b>Remote DB and API deployment</b>
+
+heroku deployed flask wsgi server with added 
+
+### 3.2 Schema updates
 
