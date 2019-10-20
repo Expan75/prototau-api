@@ -1,5 +1,5 @@
 from flask import jsonify, make_response, request
-from src import app
+from src import app, db
 from src.models import Datapoint
 import json
 
@@ -7,20 +7,19 @@ import json
 def index():
     return "Hello, World!"
 
+
+""" Main route for listing/uploading datapoints TODO: ensure compabability with postgreSQL """
 @app.route('/datapoints', methods=['GET','POST'])
 def listDatapoints():
-    print(request.method)
     if request.method == 'POST':
-        # Handle POST request
-        data = json.loads(request.data)
-        # Handle Single/Bulk inserts
-        if len(data) >= 1:
-            print("this is a single or bulk insert")
+        datapoints = json.loads(request.data)
+        # Handle Single & Bulk inserts
+        if len(datapoints) >= 1:
+            # TODO: ensure compabability with postgreSQL
+            db.engine.execute(Datapoint.__table__.insert(), datapoints)
+        # Handle empty posts
         else:
-            # Handle empty post 
-            print("this is a bulk insert")
-        # Handle single inserts
-        print(data)
+            return "Please don't try empty post requests..."
 
     datapoints = Datapoint.query.all()
     print(datapoints)

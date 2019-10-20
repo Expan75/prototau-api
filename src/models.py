@@ -1,4 +1,5 @@
 from src import db
+import datetime
 
 class Datapoint(db.Model):
     # PK
@@ -9,7 +10,8 @@ class Datapoint(db.Model):
     alarm = db.Column(db.String(64))
 
     # Timestamps
-    timestamp = db.Column(db.DateTime(timezone=False))
+    track_timestamp = db.Column(db.String(64))
+    uploaded_timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
     # Floats
     current = db.Column(db.Float)
