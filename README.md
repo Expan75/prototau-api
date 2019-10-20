@@ -34,7 +34,7 @@
 	</li><br>
 </ul>
 
-## 2. Something
+## 2. Workspace setup and how to work on PAPI
 
 ## 3. Database Development Details
 
